@@ -1,0 +1,187 @@
+make  all-recursive
+make[1]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12'
+Making all in m4
+make[2]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/m4'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/m4'
+Making all in intl
+make[2]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/intl'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/intl'
+Making all in zlib
+make[2]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/zlib'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/zlib'
+Making all in util
+make[2]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/util'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/util'
+Making all in mpi
+make[2]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi'
+Making all in cipher
+make[2]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/cipher'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/cipher'
+Making all in tools
+make[2]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/tools'
+gcc  -g -O2 -Wall -Wno-pointer-sign   -o mpicalc mpicalc.o ../cipher/libcipher.a ../mpi/libmpi.a ../util/libutil.a      
+/bin/ld: ../mpi/libmpi.a(mpi-bit.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-bit.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-bit.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-bit.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-div.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-div.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-div.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-div.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-gcd.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-gcd.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-gcd.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-gcd.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-inv.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-inv.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-inv.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-inv.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-mul.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-mul.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-mul.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-mul.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-pow.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-pow.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-pow.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-pow.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpicoder.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpicoder.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpicoder.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpicoder.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-cmp.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-cmp.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-cmp.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-cmp.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-div.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-div.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-div.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-div.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpiutil.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpiutil.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpiutil.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpiutil.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul1.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul1.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul1.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul1.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul2.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul2.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul2.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul2.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul3.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul3.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul3.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul3.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-add1.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-add1.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-add1.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-add1.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-sub1.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-sub1.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-sub1.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-sub1.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-lshift.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-lshift.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-lshift.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-lshift.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-rshift.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-rshift.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-rshift.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-rshift.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-cmp.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-cmp.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-cmp.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-cmp.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+collect2: error: ld returned 1 exit status
+make[2]: *** [Makefile:449: mpicalc] Error 1
+make[2]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/tools'
+make[1]: *** [Makefile:411: all-recursive] Error 1
+make[1]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12'
+make: *** [Makefile:347: all] Error 2

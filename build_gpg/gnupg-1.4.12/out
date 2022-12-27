@@ -1,0 +1,390 @@
+make  all-recursive
+make[1]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12'
+Making all in m4
+make[2]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/m4'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/m4'
+Making all in intl
+make[2]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/intl'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/intl'
+Making all in zlib
+make[2]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/zlib'
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -Wall -Wno-pointer-sign -c adler32.c
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -Wall -Wno-pointer-sign -c compress.c
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -Wall -Wno-pointer-sign -c crc32.c
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -Wall -Wno-pointer-sign -c uncompr.c
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -Wall -Wno-pointer-sign -c deflate.c
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -Wall -Wno-pointer-sign -c trees.c
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -Wall -Wno-pointer-sign -c zutil.c
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -Wall -Wno-pointer-sign -c inflate.c
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -Wall -Wno-pointer-sign -c infblock.c
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -Wall -Wno-pointer-sign -c inftrees.c
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -Wall -Wno-pointer-sign -c infcodes.c
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -Wall -Wno-pointer-sign -c infutil.c
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -Wall -Wno-pointer-sign -c inffast.c
+rm -f libzlib.a
+ar cru libzlib.a adler32.o compress.o crc32.o uncompr.o deflate.o trees.o zutil.o inflate.o infblock.o inftrees.o infcodes.o infutil.o inffast.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+ranlib libzlib.a
+make[2]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/zlib'
+Making all in util
+make[2]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/util'
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c logger.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c fileutil.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c miscutil.c
+miscutil.c: In function ‘strtimestamp’:
+miscutil.c:137:30: warning: ‘%02d’ directive writing between 2 and 11 bytes into a region of size between 4 and 11 [-Wformat-overflow=]
+  137 |         sprintf(buffer,"%04d-%02d-%02d",
+      |                              ^~~~
+miscutil.c:137:24: note: directive argument in the range [-2147483647, 2147483647]
+  137 |         sprintf(buffer,"%04d-%02d-%02d",
+      |                        ^~~~~~~~~~~~~~~~
+In file included from /usr/include/stdio.h:867,
+                 from miscutil.c:23:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:36:10: note: ‘__builtin___sprintf_chk’ output between 11 and 36 bytes into a destination of size 16
+   36 |   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   37 |       __bos (__s), __fmt, __va_arg_pack ());
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+miscutil.c: In function ‘isotimestamp’:
+miscutil.c:159:45: warning: ‘%02d’ directive writing between 2 and 11 bytes into a region of size between 0 and 16 [-Wformat-overflow=]
+  159 |         sprintf(buffer,"%04d-%02d-%02d %02d:%02d:%02d",
+      |                                             ^~~~
+In file included from /usr/include/stdio.h:867,
+                 from miscutil.c:23:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:36:10: note: ‘__builtin___sprintf_chk’ output between 20 and 72 bytes into a destination of size 30
+   36 |   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   37 |       __bos (__s), __fmt, __va_arg_pack ());
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c strgutil.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c ttyio.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c argparse.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c memory.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c secmem.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c errors.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c iobuf.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c dotlock.c
+dotlock.c: In function ‘use_hardlinks_p’:
+dotlock.c:591:10: warning: ignoring return value of ‘link’, declared with attribute warn_unused_result [-Wunused-result]
+  591 |   (void) link (tname, lname);
+      |          ^~~~~~~~~~~~~~~~~~~
+dotlock.c: In function ‘dotlock_take_unix’:
+dotlock.c:1013:14: warning: ignoring return value of ‘link’, declared with attribute warn_unused_result [-Wunused-result]
+ 1013 |       (void) link (h->tname, h->lockname);
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c http.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c pka.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c membuf.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c cert.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c convert.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c estream-printf.c
+estream-printf.c: In function ‘pr_integer’:
+estream-printf.c:783:1: note: the ABI of passing union with long double has changed in GCC 4.4
+  783 | pr_integer (estream_printf_out_t outfnc, void *outfncarg,
+      | ^~~~~~~~~~
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c compat.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c srv.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c assuan-buffer.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c assuan-client.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c assuan-errors.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c assuan-logging.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c assuan-socket-connect.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c assuan-connect.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c assuan-socket.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include -I../intl    -g -O2 -Wall -Wno-pointer-sign -c assuan-util.c
+rm -f libutil.a
+ar cru libutil.a logger.o fileutil.o miscutil.o strgutil.o ttyio.o argparse.o memory.o secmem.o errors.o iobuf.o dotlock.o http.o pka.o membuf.o cert.o convert.o estream-printf.o compat.o srv.o   assuan-buffer.o assuan-client.o assuan-errors.o assuan-logging.o assuan-socket-connect.o assuan-connect.o assuan-socket.o assuan-util.o  
+ar: `u' modifier ignored since `D' is the default (see `U')
+ranlib libutil.a
+rm -f libcompat.a
+ar cru libcompat.a compat.o srv.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+ranlib libcompat.a
+make[2]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/util'
+Making all in mpi
+make[2]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi'
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpi-add.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpi-bit.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpi-cmp.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpi-div.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpi-gcd.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpi-inline.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpi-inv.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpi-mul.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpi-pow.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpi-mpow.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpi-scan.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpicoder.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpih-cmp.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpih-div.c
+In file included from mpih-div.c:32:
+mpih-div.c: In function ‘mpihelp_mod_1’:
+mpi-internal.h:160:17: warning: variable ‘_ql’ set but not used [-Wunused-but-set-variable]
+  160 |  mpi_limb_t _q, _ql, _r;         \
+      |                 ^~~
+mpih-div.c:99:3: note: in expansion of macro ‘UDIV_QRNND_PREINV’
+   99 |   UDIV_QRNND_PREINV(dummy, r, r,
+      |   ^~~~~~~~~~~~~~~~~
+mpi-internal.h:160:17: warning: variable ‘_ql’ set but not used [-Wunused-but-set-variable]
+  160 |  mpi_limb_t _q, _ql, _r;         \
+      |                 ^~~
+mpih-div.c:105:6: note: in expansion of macro ‘UDIV_QRNND_PREINV’
+  105 |      UDIV_QRNND_PREINV(dummy, r, r,
+      |      ^~~~~~~~~~~~~~~~~
+mpi-internal.h:160:17: warning: variable ‘_ql’ set but not used [-Wunused-but-set-variable]
+  160 |  mpi_limb_t _q, _ql, _r;         \
+      |                 ^~~
+mpih-div.c:135:3: note: in expansion of macro ‘UDIV_QRNND_PREINV’
+  135 |   UDIV_QRNND_PREINV(dummy, r, r,
+      |   ^~~~~~~~~~~~~~~~~
+mpih-div.c:52:9: warning: variable ‘dummy’ set but not used [-Wunused-but-set-variable]
+   52 |     int dummy;
+      |         ^~~~~
+In file included from mpih-div.c:32:
+mpih-div.c: In function ‘mpihelp_divmod_1’:
+mpi-internal.h:160:17: warning: variable ‘_ql’ set but not used [-Wunused-but-set-variable]
+  160 |  mpi_limb_t _q, _ql, _r;         \
+      |                 ^~~
+mpih-div.c:446:3: note: in expansion of macro ‘UDIV_QRNND_PREINV’
+  446 |   UDIV_QRNND_PREINV( quot_ptr[i + 1], r, r,
+      |   ^~~~~~~~~~~~~~~~~
+mpi-internal.h:160:17: warning: variable ‘_ql’ set but not used [-Wunused-but-set-variable]
+  160 |  mpi_limb_t _q, _ql, _r;         \
+      |                 ^~~
+mpih-div.c:452:6: note: in expansion of macro ‘UDIV_QRNND_PREINV’
+  452 |      UDIV_QRNND_PREINV( quot_ptr[0], r, r,
+      |      ^~~~~~~~~~~~~~~~~
+mpi-internal.h:160:17: warning: variable ‘_ql’ set but not used [-Wunused-but-set-variable]
+  160 |  mpi_limb_t _q, _ql, _r;         \
+      |                 ^~~
+mpih-div.c:481:3: note: in expansion of macro ‘UDIV_QRNND_PREINV’
+  481 |   UDIV_QRNND_PREINV( quot_ptr[i], r, r,
+      |   ^~~~~~~~~~~~~~~~~
+mpih-div.c:401:9: warning: variable ‘dummy’ set but not used [-Wunused-but-set-variable]
+  401 |     int dummy;
+      |         ^~~~~
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpih-mul.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpiutil.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpih-mul1.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpih-mul2.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpih-mul3.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpih-add1.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpih-sub1.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpih-lshift.c
+gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../include    -g -O2 -Wall -Wno-pointer-sign -c mpih-rshift.c
+rm -f libmpi.a
+ar cru libmpi.a mpi-add.o mpi-bit.o mpi-cmp.o mpi-div.o mpi-gcd.o mpi-inline.o mpi-inv.o mpi-mul.o mpi-pow.o mpi-mpow.o mpi-scan.o mpicoder.o mpih-cmp.o mpih-div.o mpih-mul.o mpiutil.o mpih-mul1.o mpih-mul2.o mpih-mul3.o mpih-add1.o mpih-sub1.o mpih-lshift.o mpih-rshift.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+ranlib libmpi.a
+make[2]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi'
+Making all in cipher
+make[2]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/cipher'
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c cipher.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c pubkey.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c md.c
+md.c: In function ‘md_start_debug’:
+md.c:505:18: warning: ‘%.10s’ directive writing up to 10 bytes into a region of size between 7 and 13 [-Wformat-overflow=]
+  505 |     sprintf(buf, "dbgmd-%05d" EXTSEP_S "%.10s", idx, suffix );
+      |                  ^~~~~~~~~~~~
+md.c:505:41: note: format string is defined here
+  505 |     sprintf(buf, "dbgmd-%05d" EXTSEP_S "%.10s", idx, suffix );
+      |                                         ^~~~~
+In file included from /usr/include/stdio.h:867,
+                 from md.c:21:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:36:10: note: ‘__builtin___sprintf_chk’ output between 13 and 29 bytes into a destination of size 25
+   36 |   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   37 |       __bos (__s), __fmt, __va_arg_pack ());
+      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c dynload.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c des.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c twofish.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c blowfish.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c cast5.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c rijndael.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c camellia.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c camellia-glue.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c elgamal.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c rsa.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c primegen.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c random.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c dsa.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c smallprime.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c md5.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c rmd160.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c sha1.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c sha256.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c rndlinux.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c sha512.c
+gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../include -I../intl -DGNUPG_LIBDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/lib/gnupg\""   -g -O2 -Wall -Wno-pointer-sign -c idea-stub.c
+rm -f libcipher.a
+ar cru libcipher.a cipher.o pubkey.o md.o dynload.o des.o twofish.o blowfish.o cast5.o rijndael.o camellia.o camellia-glue.o elgamal.o rsa.o primegen.o random.o dsa.o smallprime.o md5.o rmd160.o sha1.o sha256.o rndlinux.o    sha512.o idea-stub.o
+ar: `u' modifier ignored since `D' is the default (see `U')
+ranlib libcipher.a
+make[2]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/cipher'
+Making all in tools
+make[2]: Entering directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/tools'
+gcc -DHAVE_CONFIG_H -I. -I..  -I../include -I../intl -DLOCALEDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/share/locale\""   -g -O2 -Wall -Wno-pointer-sign -c gpgsplit.c
+gcc  -g -O2 -Wall -Wno-pointer-sign   -o gpgsplit gpgsplit.o ../cipher/libcipher.a ../mpi/libmpi.a ../util/libutil.a     ../zlib/libzlib.a 
+gcc -DHAVE_CONFIG_H -I. -I..  -I../include -I../intl -DLOCALEDIR="\"/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/share/locale\""   -g -O2 -Wall -Wno-pointer-sign -c mpicalc.c
+gcc  -g -O2 -Wall -Wno-pointer-sign   -o mpicalc mpicalc.o ../cipher/libcipher.a ../mpi/libmpi.a ../util/libutil.a      
+/bin/ld: ../mpi/libmpi.a(mpi-bit.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-bit.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-bit.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-bit.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-div.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-div.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-div.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-div.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-gcd.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-gcd.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-gcd.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-gcd.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-inv.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-inv.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-inv.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-inv.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-mul.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-mul.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-mul.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-mul.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-pow.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-pow.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-pow.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-pow.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpicoder.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpicoder.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpicoder.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpicoder.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-cmp.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-cmp.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-cmp.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-cmp.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-div.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-div.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-div.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-div.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpiutil.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpiutil.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpiutil.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpiutil.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul1.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul1.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul1.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul1.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul2.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul2.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul2.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul2.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul3.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul3.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul3.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-mul3.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-add1.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-add1.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-add1.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-add1.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-sub1.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-sub1.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-sub1.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-sub1.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-lshift.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-lshift.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-lshift.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-lshift.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-rshift.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-rshift.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-rshift.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpih-rshift.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-cmp.o): in function `mpihelp_add_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: multiple definition of `mpihelp_add_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:38: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-cmp.o): in function `mpihelp_add':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: multiple definition of `mpihelp_add'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:68: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-cmp.o): in function `mpihelp_sub_1':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: multiple definition of `mpihelp_sub_1'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:84: first defined here
+/bin/ld: ../mpi/libmpi.a(mpi-cmp.o): in function `mpihelp_sub':
+/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: multiple definition of `mpihelp_sub'; ../mpi/libmpi.a(mpi-add.o):/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/mpi/mpi-inline.h:114: first defined here
+collect2: error: ld returned 1 exit status
+make[2]: *** [Makefile:449: mpicalc] Error 1
+make[2]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12/tools'
+make[1]: *** [Makefile:411: all-recursive] Error 1
+make[1]: Leaving directory '/home/poirot/Desktop/flush-reload/build_gpg/gnupg-1.4.12'
+make: *** [Makefile:347: all] Error 2

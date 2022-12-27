@@ -3,6 +3,7 @@ from __future__ import print_function
 from collections import namedtuple, defaultdict
 import csv
 import matplotlib.pyplot as plt
+import numpy as np
 import sys
 
 
@@ -10,13 +11,73 @@ inputfile = sys.argv[1] if len(sys.argv) == 2 else 'out.txt'
 
 Hit = namedtuple('Hit', ['slot', 'addr', 'time'])
 
-CUTOFF = 80
+# Before, it was 80
+CUTOFF = 3000 #80
 square = {'label': 'Square', 'marker': 'x', 'color': '#FF0059', 'addrs': [0]}
 red = {'label': 'Reduce', 'marker': '.', 'color': '#2C00E8', 'addrs': [1]}
 mult = {'label': 'Multiply', 'marker': '^', 'color': '#00F1FF', 'addrs': [2]}
 hit_types = [square, red, mult]
 
-with open(inputfile, 'rb') as outfile:
+def plot_running_min(ax, window, x, y):
+    y_avg = []
+    for i in range(len(y) - window + 1):
+        y_avg.append(np.min(y[i:i + window]))
+
+    x = x[window - 1:]
+
+    ax.plot(x, y_avg)
+
+def plot_simple():
+    rows = []
+    with open(inputfile, 'r') as outfile:
+        probereader = csv.reader(outfile, delimiter=' ')
+        rows = [Hit(slot=int(row[0]), addr=int(row[1]), time=int(row[2]))
+                for row in probereader]
+        hits = [row for row in rows if row.time < CUTOFF]
+
+    fig, ax = plt.subplots()
+
+    times = [row.time for row in hits if row.addr == 0]
+    slots = [row.slot for row in hits if row.addr == 0]
+    #times = times[20000:45000]
+    #slots = slots[20000:45000]
+
+    plot_running_min(ax, 100, slots, times)
+
+    #fig = plt.figure()
+    #axis = fig.add_subplot(111)
+
+    #ax.hist(times, bins=50, range=(0, 180))
+
+#    plt.show()
+
+    times = [row.time for row in hits if row.addr == 1]
+    slots = [row.slot for row in hits if row.addr == 1]
+    #times = times[20000:50000]
+    #slots = slots[20000:50000]
+
+    plot_running_min(ax, 100, slots, times)
+
+    #fig, ax = plt.subplots()
+    #fig = plt.figure()
+    #axis = fig.add_subplot(111)
+
+    #ax.hist(times, bins=50, range=(0, 180)) 
+
+    times = [row.time for row in hits if row.addr == 2]
+    slots = [row.slot for row in hits if row.addr == 2]
+    #times = times[20000:50000]
+    #slots = slots[20000:50000]
+
+    plot_running_min(ax, 100, slots, times)
+
+    plt.show()
+
+
+plot_simple()
+exit()
+
+with open(inputfile, 'r') as outfile:
     probereader = csv.reader(outfile, delimiter=' ')
     rows = [Hit(slot=int(row[0]), addr=int(row[1]), time=int(row[2]))
             for row in probereader]
@@ -42,7 +103,7 @@ with open(inputfile, 'rb') as outfile:
         slots_to_multiplies[multiply.slot] = multiply
     multiply_slots = sorted(slots_to_multiplies.keys())
     dists = {}
-    for i in xrange(0, len(multiply_slots) - 1):
+    for i in range(0, len(multiply_slots) - 1):
         dist = multiply_slots[i + 1] - multiply_slots[i]
         if dist not in dists:
             dists[dist] = 0

@@ -1,7 +1,7 @@
 SRC=src
 IDIR=$(SRC)/include
 CC=gcc
-CFLAGS=-Wall --std=gnu99 -I$(IDIR) -g
+CFLAGS=-Wall --std=gnu99 -I$(IDIR) -g -O0
 
 ODIR=obj
 

