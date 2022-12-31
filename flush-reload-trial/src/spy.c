@@ -24,7 +24,7 @@
 #include "config.h"
 
 
-#define NTIMING	100000
+#define NTIMING 100000
 //#define CUTOFF 10000
 #define CUTOFF 150
 //#define CUTOFF 180
@@ -61,15 +61,64 @@ inline void flush(char *adrs) {
   asm __volatile__ ("mfence\nclflush 0(%0)" : : "r" (adrs) :);
 }
 
+void listen(char **ptrs, int noffsets, int *timings, int slot_size) {
+    int ind;
+    int i;
+    int current;
+    int slotstart;
 
-int main(int c, char **v) {
-    config_t conf =readConfig(v[1]);
+    ind = 0; 
+
+    for (i = 0; i < noffsets; i++)
+        flush(ptrs[i]);
+
+    slotstart = gettime();
+
+    while (ind < NTIMING) {
+        for (i = 0; i < noffsets; i++) {
+            timings[ind * noffsets + i] = probe(ptrs[i]);
+        }
+
+        ind++;
+
+        do {
+          current = gettime();
+        } while (current - slotstart < slot_size);
+
+        slotstart += slot_size;
+        while (current - slotstart > slot_size) {
+            if (ind < NTIMING) {
+                for (i = 0; i < noffsets; i++) {
+                    timings[ind * noffsets + i] = -1;
+                }
+                ind++;
+            }
+            slotstart += slot_size;
+        }
+    }
+}
+
+int print_timings(int *timings, int len, int noffsets) {
+    int i, j;
+
+    for (i = 0; i < len; i++) {
+        printf("%d", i);
+        for (j = 0; j < noffsets; j++) {
+            printf("\t%d", timings[i * noffsets + j]);
+        }
+        putchar('\n');
+    }
+}
+
+
+int main(int argc, char **argv) {
+    config_t conf =readConfig(argv[1]);
     if (!checkConfig(conf))
     exit(1);
 
     char *ip = map(conf->fileName, 0);
     int noffsets = conf->noffsets;
-    volatile char **ptrs = malloc(sizeof(char *) * noffsets);
+    char **ptrs = malloc(sizeof(char *) * noffsets);
     int i, j;
     for (i = 0; i < noffsets; i++)
     ptrs[i] = ip + ((conf->offsets[i] - conf->base) & ~0x3f);
@@ -88,6 +137,20 @@ int main(int c, char **v) {
     unsigned int slotstart;
     unsigned int current;
     int hit;
+    int listen_mode = 0;
+
+    if (argc > 2) {
+        if (strchr(argv[2], 'l')) {
+            listen_mode = 1;
+        }
+    }
+
+    if (listen_mode) {
+        listen(ptrs, noffsets, timings, conf->slotSize);
+        print_timings(timings, NTIMING, noffsets);
+
+        return 0;
+    }
 
     char *buffer = malloc (NTIMING);
     setvbuf(stdout, buffer, _IOLBF, NTIMING);
@@ -100,18 +163,6 @@ int main(int c, char **v) {
         hit = 0;
         for (i = 0; i < noffsets; i++) {
           times[i] = probe(ptrs[i]);
-          /*
-          _mm_mfence();
-          _mm_lfence();
-          time1 = __rdtsc();
-          _mm_lfence();
-          temp = *ptrs[i];
-          _mm_lfence();
-          time2 = __rdtsc();
-          _mm_lfence();
-          _mm_mfence();
-          _mm_clflush(ptrs[i]);
-          */
           touched[i] = (times[i] < CUTOFF);
           hit |= touched[i];
         }
