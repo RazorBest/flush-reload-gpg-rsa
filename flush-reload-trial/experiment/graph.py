@@ -5,7 +5,7 @@ import sys
 import argparse
 from Levenshtein import distance as lev
 
-CUTOFF = 140
+CUTOFF = 150
 INPUT_FILE = "out.txt"
 TOP_LIMIT = 1000
 
@@ -139,6 +139,30 @@ def get_call_times(time_axis, in_threshold, out_threshold=None):
 
     return calls
 
+def get_average_time_for_function(time_axis, in_threshold, out_threshold=None):
+    if out_threshold is None:
+        out_threshold = in_threshold + 1
+
+    assert in_threshold < out_threshold
+
+    delta_count = {}
+
+    in_call = False
+    tstart = 0
+    for index, delay in enumerate(time_axis):
+        if delay <= in_threshold and not in_call:
+            in_call = True
+            tstart = index
+        elif delay >= out_threshold and in_call:
+            in_call = False
+            delta = index - tstart + 1
+            
+            if delta not in delta_count:
+                delta_count[delta] = 0
+            delta_count[delta] += 1
+    
+    return delta_count
+
 def extract_info():
     IN_SQ = 2
     IN_MUL = 3
@@ -149,7 +173,6 @@ def extract_info():
     dv = [int(row[2]) for row in data] # mpihelp_divrem
     mult = [int(row[3]) for row in data] # mul_n
     #mult_b = [int(row[4]) for row in data] # mul_n (base)
-
 
     conflict1 = 0
     conflict2 = 0
@@ -179,6 +202,9 @@ def extract_info():
     calls = get_call_times(mult, CUTOFF)
     call_count = sum(1 for _, in_call in calls if in_call)
     print(f"Isolated mul_n call count: {call_count}")
+
+    delta_times = get_average_time_for_function(dv, CUTOFF)
+    print(delta_times)
 
     """
     calls = get_call_times(mult_b, CUTOFF)
@@ -226,11 +252,10 @@ def extract_info():
     print(f"Call count for mul_n: {call_count}")
 
     calls = []
-    amortise1 = 0
-    amortise2 = 0
     in_call_1 = False
     in_call_2 = False
     square_last = False
+    mul_last = False
     mul_acc = 0
 
     call3_wait = 0
@@ -240,28 +265,33 @@ def extract_info():
 
         if y1 < CUTOFF and not in_call_1:
             in_call_1 = True
-        if y1 >= CUTOFF and y3 < CUTOFF:
-            amortise1 += 1
-            if amortise1 > 0:
-                if in_call_1 == True:
-                    if square_last:
-                        calls.append((0, index))
-                    square_last = True
-                in_call_1 = False
-        if y1 < CUTOFF:
-            amortise1 = 0
+            mul_last = False
+        if y1 >= CUTOFF and (y3 < CUTOFF or y2 < CUTOFF):
+            if in_call_1:
+                if square_last:
+                    calls.append((0, index))
+                square_last = True
+            in_call_1 = False
 
-        if y2 < CUTOFF and not in_call_2 and y3 >= CUTOFF:
+        if y2 < CUTOFF and not in_call_2: #and y3 >= CUTOFF:
             in_call_2 = True
-        if y2 >= CUTOFF and y3 < CUTOFF:
-            amortise2 += 1
-            if amortise2 > 0:
-                if in_call_2 == True:
-                    calls.append((1, index))
-                    square_last = False
+        if y2 >= CUTOFF:
+            if in_call_2:
                 in_call_2 = False
-        if y2 < CUTOFF:
-            amortise2 = 0
+                mul_last = True
+        if y2 >= CUTOFF and y3 < CUTOFF:
+            if mul_last:
+                calls.append((1, index))
+                square_last = False
+                mul_last = False
+            """
+            if in_call_2:
+                calls.append((1, index))
+                square_last = False
+                mul_last = True
+            elif mul_last:
+                pass
+                """
 
         if y2 < CUTOFF and y3 >= CUTOFF:
             mul_acc += 1
@@ -272,7 +302,7 @@ def extract_info():
             if in_call_1:
                 in_call_1 = False
 
-    #print(calls[1270:1290])
+    #print(calls[185:198])
     extracted_secret = ''.join([str(call[0]) for call in calls])
 
     lev_dist = lev(extracted_secret, EXPECTED_SECRET)
