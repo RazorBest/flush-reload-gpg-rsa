@@ -1,5 +1,7 @@
 #!/bin/bash
 
+python3 -m pip install matplotlib numpy Levenshtein
+
 set -o xtrace
 
 export GNUPGHOME=./dot-gnupg
